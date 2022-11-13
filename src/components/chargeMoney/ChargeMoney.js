@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 // Components
 import Title from '../title/Title'
 import Btn from '../Btn/Btn'
+import Loader from '../loader/Loader'
 
 // redux
 import {
@@ -19,7 +20,9 @@ import styled from './chargeMoney.module.css'
 const ChargeMoney = () => {
   const [topup, setTopup] = useState(0)
   const dispatch = useDispatch()
-  const { isError, isSuccess } = useSelector((state) => state.account)
+  const { isError, isSuccess, isLoading } = useSelector(
+    (state) => state.account
+  )
 
   useEffect(() => {
     if (isError) {
@@ -76,6 +79,7 @@ const ChargeMoney = () => {
               onChange={onChange}
             />
           </div>
+          {isLoading && <Loader />}
           <div>
             <Btn type={'submit'} variant={'secondary'} text='Deposit' />
           </div>

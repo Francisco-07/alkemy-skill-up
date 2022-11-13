@@ -57,7 +57,9 @@ const getMyAccount = async () => {
 // charge money
 
 // los tiempos de deposito pueden tardar porque tiene que loopear por todas las cuentas si o si
-
+// si tu cuenta esta en el final de la lista tarda mucho en buscarla
+// puse un loader puede parecer que va a estar loopeando infinito, pero en algun
+// punto encuentra la cuenta y envia la plata
 
 const chargeMoney = async (deposit) => {
   const token = JSON.parse(localStorage.getItem('token'))
@@ -85,9 +87,9 @@ const chargeMoney = async (deposit) => {
 
 // send money
 
-
-// aveces cuando queres transferirar tirar error 400 "La cuenta origen no tiene suficiente saldo" asumo que es problema de la api
-
+// aveces cuando queres transferirar tirar error 400
+// "La cuenta origen no tiene suficiente saldo" asumo que es problema de la api
+// lo mismo que cuando cargas plata puede tardar si tu cuenta esta en el final del array
 
 const sendMoney = async ({ payment, querid }) => {
   const token = JSON.parse(localStorage.getItem('token'))

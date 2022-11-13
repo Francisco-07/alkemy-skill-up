@@ -2,6 +2,7 @@
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 
+
 // Pages
 import HomePage from './pages/home/HomePage'
 import LoginPage from './pages/login/LoginPage'

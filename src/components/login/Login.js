@@ -12,6 +12,7 @@ import Btn from '../Btn/Btn'
 
 // Redux
 import { login, reset, logedUser } from '../../features/auth/authSlice'
+import { createAccount } from '../../features/account/accountSlice'
 
 function Login() {
   const token = JSON.parse(localStorage.getItem('token'))
@@ -48,6 +49,7 @@ function Login() {
         timer: 1500,
       })
       dispatch(logedUser())
+      dispatch(createAccount())
       navigate('/')
     }
 

@@ -3,6 +3,7 @@ import HomePage from './pages/home/HomePage'
 import LoginPage from './pages/login/LoginPage'
 import RegisterPage from './pages/register/RegisterPage'
 
+
 // Libraries
 import { Navigate, Outlet, Routes, Route } from 'react-router-dom'
 

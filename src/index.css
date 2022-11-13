@@ -67,3 +67,26 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
+.btn {
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--light-blue);
+  color: var(--white);
+}
+.btn-primary:hover {
+  opacity: 0.8;
+}
+.btn-secondary {
+  background-color: var(--grey);
+  color: var(--white);
+  padding: 0.7rem 1.4rem;
+}
+.btn-secondary:hover {
+  background-color: var(--black);
+  color: var(--white);
+}

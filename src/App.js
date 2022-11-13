@@ -1,5 +1,8 @@
 // Pages
 import HomePage from './pages/home/HomePage'
+import LoginPage from './pages/login/LoginPage'
+import RegisterPage from './pages/register/RegisterPage'
+
 
 // Libraries
 import { Navigate, Outlet, Routes, Route } from 'react-router-dom'
@@ -23,9 +26,9 @@ function App() {
             <Route path='/transactions' element={<TransactionsPage />} />
             <Route path='/transaction' element={<Transaction />} /> */}
           </Route>
-          {/* <Route path='/login' element={<LoginPage />} />
+          <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
-          <Route path='*' element={<ErrorPage />} /> */}
+          {/* <Route path='*' element={<ErrorPage />} />  */}
         </Routes>
       </main>
       {/* <Footer /> */}

@@ -8,6 +8,7 @@ import Title from '../title/Title'
 import Btn from '../Btn/Btn'
 import Loader from '../loader/Loader'
 
+
 // Styles
 import styled from './user.module.css'
 
@@ -21,9 +22,11 @@ const User = () => {
   const [topup, setTopup] = useState(0)
   const [concept, setConcept] = useState('Payment')
   const dispatch = useDispatch()
+
   const { isError, isSuccess, isLoading } = useSelector(
     (state) => state.account
   )
+
   let query = new URLSearchParams(window.location.search)
   let querid = Number(query.get('id'))
 

@@ -8,6 +8,7 @@ import Title from '../title/Title'
 import Btn from '../Btn/Btn'
 import Loader from '../loader/Loader'
 
+
 // redux
 import {
   chargeMoney,
@@ -20,9 +21,11 @@ import styled from './chargeMoney.module.css'
 const ChargeMoney = () => {
   const [topup, setTopup] = useState(0)
   const dispatch = useDispatch()
+
   const { isError, isSuccess, isLoading } = useSelector(
     (state) => state.account
   )
+
 
   useEffect(() => {
     if (isError) {

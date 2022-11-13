@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.container h1 {
+  margin: 0;
+  font-size: 3rem;
+}

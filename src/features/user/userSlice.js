@@ -94,5 +94,5 @@ export const userSlice = createSlice({
   },
 })
 
-export const { resetUsertState, resetUserStatus } = userSlice.actions
+export const { resetUserState, resetUserStatus } = userSlice.actions
 export default userSlice.reducer

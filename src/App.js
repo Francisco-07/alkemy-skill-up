@@ -1,5 +1,6 @@
 // Components
 import Navbar from './components/navbar/Navbar'
+import Footer from './components/footer/Footer'
 
 // Pages
 import HomePage from './pages/home/HomePage'
@@ -10,6 +11,7 @@ import TransactionPage from './pages/transaction/TransactionPage'
 import ChargeMoneyPage from './pages/chargeMoney/ChargeMoneyPage'
 import UsersListPage from './pages/usersList/UsersListPage'
 import UserPage from './pages/user/UserPage'
+import ErrorPage from './pages/error/ErrorPage'
 
 // Libraries
 import { Navigate, Outlet, Routes, Route } from 'react-router-dom'
@@ -35,10 +37,10 @@ function App() {
           </Route>
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
-          {/* <Route path='*' element={<ErrorPage />} />  */}
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

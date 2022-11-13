@@ -7,6 +7,7 @@ import LoginPage from './pages/login/LoginPage'
 import RegisterPage from './pages/register/RegisterPage'
 import TransactionsPage from './pages/transactions/TransactionsPage'
 import TransactionPage from './pages/transaction/TransactionPage'
+import ChargeMoneyPage from './pages/chargeMoney/ChargeMoneyPage'
 
 // Libraries
 import { Navigate, Outlet, Routes, Route } from 'react-router-dom'
@@ -25,8 +26,8 @@ function App() {
           <Route element={<PrivateRoutes />}>
             <Route exact path='/' element={<HomePage />} />
             {/* <Route path='/users' element={<UsersListPage />} />
-            <Route path='/user' element={<UserPage />} />
-            <Route path='/charge' element={<ChargeMoneyPage />} /> */}
+            <Route path='/user' element={<UserPage />} />*/}
+            <Route path='/charge' element={<ChargeMoneyPage />} />
             <Route path='/transactions' element={<TransactionsPage />} />
             <Route path='/transaction' element={<TransactionPage />} />
           </Route>

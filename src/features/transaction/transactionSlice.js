@@ -4,6 +4,7 @@ import TransactionService from './transactionService'
 const initialState = {
   transactions: [],
   transaction: {},
+  allTransactions: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -32,6 +33,23 @@ export const singleTransaction = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       return await TransactionService.singleTransaction(id)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+export const transactionReduce = createAsyncThunk(
+  'all/transaction',
+  async (thunkAPI) => {
+    try {
+      return await TransactionService.transactionReduce()
     } catch (error) {
       const message =
         (error.response &&
@@ -88,6 +106,12 @@ export const transactionSlice = createSlice({
       .addCase(singleTransaction.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
+        state.message = action.payload
+      })
+      .addCase(transactionReduce.fulfilled, (state, action) => {
+        state.allTransactions = action.payload
+      })
+      .addCase(transactionReduce.rejected, (state, action) => {
         state.message = action.payload
       })
   },

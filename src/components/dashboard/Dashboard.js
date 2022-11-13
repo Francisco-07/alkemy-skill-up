@@ -19,16 +19,17 @@ import { BiPaperPlane } from 'react-icons/bi'
 import {
   getPaginatedTransactions,
   resetTransactionStatus,
+  transactionReduce,
 } from '../../features/transaction/transactionSlice'
 
 const Dashboard = () => {
-  const { transactions, isError, isSuccess } = useSelector(
+  const { transactions, allTransactions, isError, isSuccess } = useSelector(
     (state) => state.transaction
   )
 
   const dispatch = useDispatch()
 
-  const totalCharged = transactions.data
+  const totalCharged = allTransactions
     ?.filter((item) => {
       return item.concept === 'Deposit'
     })
@@ -36,7 +37,7 @@ const Dashboard = () => {
       return totalPayment + Number(item.amount)
     }, 0)
 
-  const totalPayments = transactions.data
+  const totalPayments = allTransactions
     ?.filter((item) => {
       return item.concept !== 'Deposit'
     })
@@ -48,6 +49,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getPaginatedTransactions())
+    dispatch(transactionReduce())
   }, [dispatch])
 
   useEffect(() => {

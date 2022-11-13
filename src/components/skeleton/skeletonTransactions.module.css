@@ -1,0 +1,7 @@
+.container {
+  height: 350px;
+  width: 448px;
+  padding: 2rem;
+  color: var(--skeleton);
+  background-color: var(--skeleton);
+}

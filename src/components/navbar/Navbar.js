@@ -17,6 +17,9 @@ import Swal from 'sweetalert2'
 // Redux
 import { logout, reset } from '../../features/auth/authSlice'
 import { resetAccountState } from '../../features/account/accountSlice'
+import { resetTransactionState } from '../../features/transaction/transactionSlice'
+import { resetUserState } from '../../features/user/userSlice'
+
 
 // Styles
 import styled from './navbar.module.css'
@@ -35,6 +38,9 @@ const Navbar = () => {
     dispatch(logout())
     dispatch(reset())
     dispatch(resetAccountState())
+    dispatch(resetUserState())
+    dispatch(resetTransactionState())
+
     Swal.fire({
       icon: 'success',
       title: 'User Loged out',

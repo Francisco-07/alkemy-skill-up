@@ -94,7 +94,7 @@ const sendMoney = async ({ payment, querid }) => {
   }
   const accounts = await axios.get('accounts', config)
   let account = await accounts.data.data.find((id) => id.userId === querid)
-  console.log(querid)
+
   let count = 2
   while (!account) {
     const res = await axios.get(`accounts/?page=${count}`, config)

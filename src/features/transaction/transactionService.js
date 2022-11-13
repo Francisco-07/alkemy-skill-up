@@ -31,9 +31,35 @@ const singleTransaction = async (id) => {
   return res.data
 }
 
+const transactionReduce = async () => {
+  const token = JSON.parse(localStorage.getItem('token'))
+  const config = {
+    headers: {
+      Authorization: 'Bearer ' + token.accessToken,
+    },
+  }
+  const transactionsArray = []
+  const res = await axios.get(`transactions/`, config)
+
+  let next = res.data.nextPage
+
+  transactionsArray.push(...res.data.data)
+  console.log('arriba', transactionsArray)
+  let count = 2
+  while (next !== null) {
+    const res = await axios.get(`transactions/?page=${count}`, config)
+    transactionsArray.push(...res.data.data)
+    console.log(transactionsArray)
+    next = res.data.nextPage
+    count++
+  }
+  return transactionsArray
+}
+
 const accountService = {
   getPaginatedTransactions,
   singleTransaction,
+  transactionReduce,
 }
 
 export default accountService
